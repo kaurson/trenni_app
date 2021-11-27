@@ -1,0 +1,8 @@
+<h1>{{ question.question_text }}</h1>
+<h2>autor: {{question.autor}}</h2>
+<h3>date: {{question.pub_date}}</h3>
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>

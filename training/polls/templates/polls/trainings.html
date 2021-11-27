@@ -1,0 +1,9 @@
+{% if latest_trainings_list %}
+    <ul>
+    {% for training in latest_trainings_list %}
+        <li><a href="/polls/{{ training.id }}/">{{ training.description }} {{training.date}} location: {{training.organiser}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No trainings are available.</p>
+{% endif %}
