@@ -16,6 +16,10 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
+def training_details(request, training_id):
+    training = get_object_or_404(Training, pk=training_id)
+    return render(request, 'polls/training.html', {'training': training})
+
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/detail.html', {'question': question})

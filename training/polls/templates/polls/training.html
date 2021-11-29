@@ -1,0 +1,14 @@
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<h1>{{ training.description }}</h1>
+<h2>autor: {{training.organiser}}</h2>
+<h3>date: {{training.date}}</h3>
+<a href="/polls/">Tagasi</a>

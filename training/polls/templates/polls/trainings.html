@@ -1,9 +1,38 @@
-{% if latest_trainings_list %}
-    <ul>
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Trenn</th>
+        <th scope="col">Kuupäev</th>
+        <th scope="col">Korraldaja</th>
+        <th scope="col">Link</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if latest_trainings_list %}
     {% for training in latest_trainings_list %}
-        <li><a href="/polls/{{ training.id }}/">{{ training.description }} {{training.date}} location: {{training.organiser}}</a></li>
+    <tr>
+        <td>{{ training.description }}</td>
+        <td>{{training.date}}</td>
+        <td>{{training.organiser}}</td>
+        <td><a href="/polls/{{ training.id }}/">Ava</a></td>
+    </tr>
     {% endfor %}
-    </ul>
-{% else %}
+    {% else %}
     <p>No trainings are available.</p>
-{% endif %}
+    {% endif %}
+    </tbody>
+</table>
+
+
+
